@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <header>
+        <div style ="width:14%">
+            <a style="vertical-align: top;" href={{path("accueil")}}><img style="margin-top:2%;" class="img" src="/img/fastsushi.png" alt="fastsushi"/></a>
+        </div>
+        <div style="width:86%; text-align:right; margin-top:1%">
+
+        {% if app.user %}
+            <a class = headmenu href={{path("app_logout")}}/><strong>Déconnexion</strong></a>
+        {% else %}
+            <a class = headmenu href={{path("app_login")}}/><strong>Connexion</strong></a>
+        {% endif %}
+        <a class = headmenu href={{path("inscription")}}/><strong>S'inscrire</strong></a>
+            <a href={{path("panier_index")}}/><img class ="panier" src="/img/panier1.jpg" alt="panier"/></a>
+            <br>
+        </div>
+        
+    </header>
+    <body style="background-color: white">
+     <center>  
+      <nav style="padding-top:5%;">
+            <a href={{path("accueil")}}/><strong>Accueil</strong></a>
+           
+            <a href={{path("contact_list")}}/><strong>Contact</strong></a>
+
+            <a href={{path("carte_plat")}}/><strong>La carte</strong></a>
+            <br>
+            <div id="indicator"></div>
+        </nav>
+    </center>
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+<footer>@Copyright FastSushi</footer>
+<style>
+
+
+</style>
+</html>

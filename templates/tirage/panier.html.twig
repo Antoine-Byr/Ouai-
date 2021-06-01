@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <center><h1> <strong>Mon panier</strong></h1></br>
+    </center>
+    {% if items | length > 0 %}
+        <tbody>
+            {% for item in items %}
+            <div style="display:block; margin-left:10%">
+            <table>
+                <tr>
+                    <th>Nom : </th>
+                        <td><strong> {{item.product.nomplat}}</strong></td>
+                </tr>
+                <tr>
+                    <th> Prix : </th>
+                        <td><strong> {{item.product.prixttc}} € </strong></td>
+                </tr>
+                <tr>
+                    <th> Quantité : </th>
+                        <td> {{item.quantity}} </td>
+                </tr>
+                <tr>
+                    <th> A payer </th>
+                        <td> {{item.product.prixttc * item.quantity}} </td>
+                </tr>
+                <tr>
+                    <th> </th>
+                        <td> <a href="{{ path ('panier_remove', {'id': item.product.idplat}) }}"><button class="deleteButton">Retirer</button></a> </td>
+                </tr>
+            </table>
+            </div>
+            {% endfor %}
+        </tbody>
+        <hr>
+        <tfoot>
+            <tr>
+                <td colspan ="3"> Total : </td>
+                <td> {{ total }} €</td>
+                <td></td>
+            </tr>
+            <br>
+             <tr>
+                <td colspan ="3"> Taux TVA applicable : </td>
+                <td> 2.10 %</td>
+                <td></td>
+            </tr>
+        </tfoot>
+        <a href={{path("panier_validate")}} class="btn submit"> Valider la commande </a>
+            
+
+        
+    {% else %}
+        <p> Mon panier est vide </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig'%}
+
+{% block body %}
+{% import '/macro/formes.html.twig' as frm %}
+    {{frm.formes('carre-rouge', 'danger')}}
+    {{frm.formes('rectangle-vert', 'success')}}
+    {{frm.formes('cercle-bleu', 'alert')}}
+{% endblock %}

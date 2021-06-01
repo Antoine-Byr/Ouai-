@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div style="display: inline">
+        <button class="btn submit"><a href={{path("carte_entree")}}/><strong>Entrée</strong></a></button>
+    </div>
+    <div style="display: inline">
+        <button class="btn submit"><a href={{path("carte_plat")}}/><strong> Plat</strong></a></button>
+    </div>
+    <div style="display: inline">
+        <button class="btn submit"><a href={{path("carte_dessert")}}/><strong>Dessert</strong></a></button>
+    </div>
+    <div style="display: inline">
+        <button class="btn submit"><a href={{path("carte_creation")}}/><strong>Creation</strong></a></button>
+    </div>
+    <br><br><br>
+<div style="display: inline; padding-left: 30px;">
+{% for p in plat %}
+<table>
+    <tr>
+        <th>Nom : </th>
+            <td> {{p.nomplat}}</td>     
+    </tr>
+    <tr>
+        <th></th>
+            <td><img width=94px  src="data:image/png;base64,{{p.image64}}" /> </td>
+    </tr>
+    <tr>
+        <th> Prix : </th>
+            <td> {{p.prixTTC}} €</td>
+    </tr>
+    <tr>
+        <td><a href="{{path('panier_add' , {'id': p.idplat}) }}" class="btn submit"> Ajouter au panier </a></td>
+            
+    </tr>
+</table>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<p style="font-size:25px;">Vous creez actuellement votre plat</p></br> </br> 
+
+{% for i in ingredient %}
+<table>
+    <tr>
+        <th>Nom : </th>
+            <td> {{i.nomingredient}}</td>
+    </tr>
+    <tr>
+        <th></th>
+            <td><img width=64 src="data:image/png;base64,{{i.image64}}" /> </td>
+    </tr>
+    <tr>
+        <td><a href="{{path('panier_add_create' , {'id': i.idIngredient}) }}" class="btn submit"> Choisir cet ingredient </td>
+            
+    </tr>
+</table>
+{% endfor %}
+{% endblock %}

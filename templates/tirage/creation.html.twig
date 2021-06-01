@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<button class="btn submit"><a href={{path("choix")}}/><strong>Retour</strong></a></button>
+<br>
+<div class="choix">
+    <div style="display: inline-block">
+        <a href={{path("create_maki")}}/><img width=200 src="/img/maki.jpg" /></a><br>
+        <button class="btn submit" style="width: 200px"><a href={{path("create_maki")}}/><strong>Maki</strong></a></button>
+    </div>
+    <div style="display: inline-block; padding-left : 10%;">
+        <a href={{path("create_california")}}/><img width=200 src="/img/california_rolls.jpg" /></a><br>
+        <button class="btn submit" style="width: 200px"><a href={{path("create_california")}}/><strong> California Rolls</strong></a></button>
+    </div>
+    <div style="display: inline-block; padding-left : 10%;">
+        <a href={{path("create_spring")}}/><img width=200 src="/img/spring_rolls.jpg" /></a><br>
+        <button class="btn submit" style="width: 200px"><a href={{path("create_spring")}}/><strong>Spring Rolls</strong></a></button>
+    </div>
+</div>
+{% endblock %}

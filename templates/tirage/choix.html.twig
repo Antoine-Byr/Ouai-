@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<center>
+    <div style="display: inline">
+        <a href={{path("carte_plat")}}/><button class="btn submit" style="padding: 20px; margin:40px; font-size:20px;"> La carte </button></a>
+    </div>
+</center>
+{#% import 'alertes.html.twig' as msg %}
+{{ msg.alert('Attention !', 'warning') }#}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+{% for element in adherents %}
+    <p><center>
+        nom : {{ element ['nom'] }}
+    </center></p>
+    {% endfor %}
+{% endblock %}
